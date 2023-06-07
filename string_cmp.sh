@@ -2,13 +2,15 @@
 
 # test-string: evaluate the value of a string
 
+# take input from user
 printf "%s" "What's your answer? "
 read ANSWER
 
 # -n checks if the length of string is greater than zero
 # if string not greater than zero exit program
+# echo output redirected to standard error
 if [ ! -n "$ANSWER" ]; then
-    echo "There is no answer."
+    echo "There is no answer." >&2
     exit 1
 fi
 
