@@ -1,5 +1,6 @@
-#! usr/bin/bash
+#!/bin/bash
 
+# script to make basic layout of flask files/dirs
 mkdir static
 mkdir templates
 touch app.py
