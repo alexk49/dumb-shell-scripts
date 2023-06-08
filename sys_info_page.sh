@@ -32,10 +32,20 @@ _EOF_
     }
 
 report_home_space () {
+    # the super user's ID is always 0
+    # so if super user then show all users
+    if [[ "$(id -u)" -eq 0 ]]; then
     cat <<- _EOF_
-<h2>Home Space Utilization</h2>
+<h2>Home Space Utilization (All Users)</h2>
 <pre>$(du -sh /home/*)</pre>
 _EOF_
+    else
+        # just show current users info
+    cat <<- _EOF_
+<h2>Home Space utilization ($USER)</h2>
+<pre>$(du -sh $HOME)</pre>
+_EOF_
+    fi
     return
     }
 
