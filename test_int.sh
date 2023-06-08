@@ -2,28 +2,29 @@
 
 # test int
 
-INT=-5
+echo -n "Please enter an integer -> "
+read int
 
 # check int is int
-if [[ "$INT" =~ ^-?[0-9]+$ ]]; then
+if [[ "$int" =~ ^-?[0-9]+$ ]]; then
     ## (( )) is used for ints
     # to perform arithmetic truth tests
-    if ((INT == 0)); then
-        echo "INT is zero"
+    if ((int == 0)); then
+        echo "int is zero"
     else
-        if ((INT < 0)); then
-            echo "INT is negative"
+        if ((int < 0)); then
+            echo "int is negative"
         else
-            echo "INT is positive"
+            echo "int is positive"
         fi
         # if int divided by 2 has no remainder
-        if (( ((INT % 2)) == 0)); then
-            echo "INT is even"
+        if (( ((int % 2)) == 0)); then
+            echo "int is even"
         else
-            echo "INT is odd"
+            echo "int is odd"
         fi
     fi
 else
-    echo "INT is not an integer." >&2
+    echo "int is not an integer." >&2
     exit 1
 fi
