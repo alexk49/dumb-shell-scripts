@@ -4,8 +4,7 @@
 
 DELAY=3 # number of seconds to display results
 
-while [[ "$REPLY" != 0 ]]; do
-
+while true; do
     clear
 cat <<- _EOF_
 Please Select:
@@ -26,10 +25,12 @@ _EOF_
             echo "Hostname: $HOSTNAME"
             uptime
             sleep "$DELAY"
+            continue
         fi
         if [[ "$REPLY" == 2 ]]; then
             df -h
             sleep "$DELAY"
+            continue
         fi
 
         if [[ "$REPLY" == 3 ]]; then
@@ -41,6 +42,10 @@ _EOF_
                 du -sh "$HOME"
             fi
             sleep "$DELAY"
+            continue
+        fi
+        if [[ "$REPLY" == 0 ]]; then
+            break
         fi
     else
         echo "Invalid entry." >&2
