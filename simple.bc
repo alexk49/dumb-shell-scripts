@@ -1,0 +1,6 @@
+/* a simple bc script
+this is run with bc scriptname.bc
+it will print out the copyright notice unlesss you run with -q option
+bc is a calculator program for */
+
+2 + 2 * 10
