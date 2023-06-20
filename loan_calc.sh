@@ -22,8 +22,16 @@ if (($# !=3)); then
     exit 1
 fi
 
-for 
-if ! (($1 =~ 
+for arg in "$@"; do
+    # pattern covers digits as well as floating point
+    pattern="^-?[[:digit:]]+\.?[[:digit:]]+$"
+    if [[ ! "$1" =~ $pattern ]]; then 
+        echo "All values should be digits"
+        echo "Invalid digit"
+        usage
+        exit 1
+    fi
+done
 
 principal=$1
 interest=$2
